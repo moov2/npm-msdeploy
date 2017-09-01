@@ -2,11 +2,17 @@
 
 This is a wrapper around Microsoft msdeploy that can be used in npm scripts.
 
+Web Deploy (msdeploy) simplifies deployment of Web applications and Web sites to IIS servers.
+
+To use this npm module you are required to have msdeploy installed on your machine. [You can install it from](https://www.iis.net/downloads/microsoft/web-deploy) 
+
 ### Install
 
 ### Use
 
 ### Accepted params
+[Web Deploy Command Line Syntax](https://technet.microsoft.com/en-us/library/dd569106(v=ws.10).aspx)
+
 ```
 -verb:<name>                   Action to perform (required).
 -source:<object>               The source object for the operation (required).
