@@ -1,0 +1,15 @@
+{
+  "name": "msdeploy",
+  "version": "1.0.0",
+  "description": "deploy using msdeploy",
+  "main": "index.js",
+  "bin": {
+    "msdeploy": "./msdeploy"
+  },
+  "author": "Moov2",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^7.0.5",
+    "ltcdr": "^2.2.1"
+  }
+}

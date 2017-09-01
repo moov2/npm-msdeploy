@@ -1,0 +1,77 @@
+#!/usr/bin/env node
+'use strict';
+var deploy = require('./index');
+var pkg = require('./package.json');
+var program = require('ltcdr');
+
+/*
+	All params accepted from msdeploy.exe
+
+	-verb:<name>                   Action to perform (required).
+	-source:<object>               The source object for the operation (required).
+	-dest:<object>                 The destination object for the operation.
+	-declareParam:<params>         Declares a parameter for synchronization.
+	-setParam:<params>             Sets a parameter for synchronization.
+	-setParamFile:<xmlfile>        Applies parameter settings from an XML file.
+	-declareParamFile:<xmlfile>    Includes parameter declarations from an XML file.
+	-removeParam:<name>            Removes a parameter from the list of declared parameters.
+	-disableLink:<name>            Disables the specified link extension(s).
+	-enableLink:<name>             Enables the specified link extension(s).
+	-disableRule:<name>            Disables the specified synchronization rule(s).
+	-enableRule:<name>             Enables the specified synchronization rule(s).
+	-replace:<arg settings>        Specifies an attribute replacement rule.
+	-retryAttempts                 The number of times a provider will retry after a failed action (not all providers support retrying). Defaults to 5.
+	-retryInterval                 Interval in milliseconds between retry attempts (-retryAttempts). The default is 1000.
+	-skip:<arg settings>           Specifies an object to skip during synchronization.
+	-disableSkipDirective:<name>   Disables the specified skip directive.
+	-enableSkipDirective:<name>    Enables the specified skip directive.
+	-verbose                       Enables more verbose output.
+	-whatif                        Displays what would have happened without actually performing any operations.
+	-disableAppStore               Disables saving to the application store during a sync.
+	-xpath:<path>                  An XPath expression to apply to XML output.
+	-xml                           Return results in XML format.
+	-allowUntrusted                Allow untrusted server certificate when using SSL.
+	-showSecure                    Show secure attributes in XML output instead of hiding them.^
+	-preSync:<command>             A command to execute before the synchronization on the destination.  For instance, net stop a service.
+	-postSync:<command>            A command to execute after the synchronization on the destination.  For instance, net start a service.
+*/
+
+program.version(pkg.version)
+	.option('--verb', 'specifies a Web Deploy verb. (delete, dump, getDependencies, getSystemInfo, sync)')
+	.option('--source', 'specifies the source of the data for the verb argument')
+	.option('--dest', 'specifies the destination of a synchronization operation')
+	.option('--declareParam', 'declares a parameter for synchronization')
+	.option('--setParam', 'sets a parameter for synchronization')
+	.option('--setParamFile', 'applies parameter settings from an XML file.')
+	.option('--declareParamFile', 'includes parameter declarations from an XML file')
+	.option('--removeParam', 'removes a parameter from the list of declared parameters')
+	.option('--disableLink', 'disables the specified link extension(s)')
+	.option('--enableLink', 'enables the specified link extension(s)')
+	.option('--disableRule', 'disables the specified synchronization rule(s)')
+	.option('--enableRule', 'enables the specified synchronization rule(s)')
+	.option('--replace', 'specifies an attribute replacement rule')
+	.option('--retryAttempts', 'the number of times a provider will retry after a failed action (not all providers support retrying). Defaults to 5')
+	.option('--retryInterval', 'interval in milliseconds between retry attempts (-retryAttempts). The default is 1000')
+	.option('--skip', 'specifies an object to skip during synchronization')
+	.option('--disableSkipDirective', 'disables the specified skip directive')
+	.option('--enableSkipDirective', 'enables the specified skip directive')
+	.option('--verbose', 'enables more verbose output')
+	.option('--whatif', 'displays what would have happened without actually performing any operations')
+	.option('--disableAppStore', 'disables saving to the application store during a sync')
+	.option('--xpath', 'an XPath expression to apply to XML output')
+	.option('--xml', 'return results in XML format')
+	.option('--allowUntrusted', 'skips the certificate check')
+	.option('--showSecure', 'show secure attributes in XML output instead of hiding them')
+	.option('--preSync', 'a command to execute before the synchronization on the destination.  For instance, net stop a service')
+	.option('--postSync', 'a command to execute after the synchronization on the destination.  For instance, net start a service')
+
+ 	.usage('[options]')
+  	.parse(process.argv);
+deploy(program.args, program, function (err) {
+  	if (err) {
+		console.error(err);
+		process.exit(1);
+  	} else {
+		process.exit(0);
+  	}
+});

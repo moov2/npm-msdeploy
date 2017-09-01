@@ -1,0 +1,6 @@
+# obtain Node dependencies by running `npm install` command.
+node_modules/
+npm-debug.log
+
+# Ignore MAC OS related
+.DS_Store
