@@ -11,5 +11,8 @@
   "dependencies": {
     "glob": "^7.0.5",
     "ltcdr": "^2.2.1"
+  },
+  "engines": {
+    "node": ">=4"
   }
 }
