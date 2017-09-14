@@ -2,8 +2,8 @@
 
 const path = require('path');
 const fs = require('fs');
-const { spawn } = require('child_process');
-const { exec } = require('child_process');
+const spawn = require('child_process').spawn;
+const = require('child_process').exec;
 
 var deploy = function(args, options) {
 
