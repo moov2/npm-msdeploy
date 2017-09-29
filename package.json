@@ -1,13 +1,20 @@
 {
   "name": "msdeploy",
   "version": "1.0.0",
-  "description": "deploy using msdeploy",
+  "description": "NPM MSDeploy, deploy using microsoft msdeploy",
   "main": "index.js",
   "bin": {
     "msdeploy": "./msdeploy"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@https://github.com/moov2/npm-msdeploy.git"
+  },
   "author": "Moov2",
-  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moov2/npm-msdeploy/issues"
+  },
+  "license": "MIT",
   "dependencies": {
     "glob": "^7.0.5",
     "ltcdr": "^2.2.1"
