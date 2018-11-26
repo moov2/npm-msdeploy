@@ -42,7 +42,7 @@ The values in config can be set manually or set via CLI or deployment script.
 To set config values the following command can be used via CLI or deployment script.
 
 ```
-npm run deploy --NAME_OF_THE_PACKAGE:ComputerName="Computer name" --NAME_OF_THE_PACKAGE:Username="Username" --NAME_OF_THE_PACKAGE:password="Password"
+npm run deploy --NAME_OF_THE_PACKAGE:ComputerName="Computer name" --NAME_OF_THE_PACKAGE:Username="UserName" --NAME_OF_THE_PACKAGE:Password="Password"
 ```
 
 _NAME_OF_THE_PACKAGE should be replaced with the name specified in package.json_
