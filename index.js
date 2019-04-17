@@ -5,21 +5,22 @@ const fs = require('fs');
 const spawn = require('child_process').spawn;
 const exec = require('child_process').exec;
 
-var deploy = function () {
+var deploy = function (args, options) {
+
 	var params = '',
-		param;
+		index = 0;
 
-	for (var i = 0; i < process.argv.length; i++) {
-		if (!process.argv[i].startsWith('--')) {
-			continue;
-		}
-
-		param = process.argv[i].replace('--', '');
-
-		params += '-' + param;
-
-		if (i + 1 >= process.argv.length) {
-			continue;
+	for (var value in options) {
+		// Check if the option passed from user
+		var key = options[value];
+		if (key === true) {
+			var argValue = args[index];
+			if ("source" === value) {
+				argValue = processSource(argValue);
+			}
+			var param = "-" + value + ":" + argValue;
+			params = params + ' ' + param;
+			index++;
 		}
 		
 		if (param === 'source') {

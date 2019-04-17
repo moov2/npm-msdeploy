@@ -4,3 +4,6 @@ npm-debug.log
 
 # Ignore MAC OS related
 .DS_Store
+
+# VSCode files
+.vscode
