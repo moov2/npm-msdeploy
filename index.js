@@ -22,13 +22,6 @@ var deploy = function (args, options) {
 			params = params + ' ' + param;
 			index++;
 		}
-		
-		if (param === 'source') {
-			params += ':' + processSource(process.argv[i + 1]) + ' ';
-			continue;
-		}
-
-		params += ':' + process.argv[i + 1] + ' ';
 	}
 
 	runMSDeploy(params);
