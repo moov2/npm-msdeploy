@@ -1,6 +1,6 @@
 {
   "name": "msdeploy",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "NPM MSDeploy, deploy using microsoft msdeploy",
   "main": "index.js",
   "bin": {
